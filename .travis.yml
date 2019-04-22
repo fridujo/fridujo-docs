@@ -1,0 +1,24 @@
+
+sudo: required
+if: branch = master
+services:
+  - docker
+
+before_install:
+  - docker pull antora/antora:2.0.0
+
+script:
+  - docker run -v $TRAVIS_BUILD_DIR:/antora --rm -t antora/antora:2.0.0 --pull --stacktrace gh-pages.yml
+
+after_success:
+  - chmod 777 build
+  - chmod 777 build/site
+  - touch build/site/.nojekyll
+  - ls -al build/site
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  local_dir: build/site
+  verbose: true
