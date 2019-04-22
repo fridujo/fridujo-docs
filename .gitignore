@@ -1,0 +1,7 @@
+# Antora
+.antora/
+build/
+
+# IntelliJ
+.idea/
+*.iml

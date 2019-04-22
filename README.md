@@ -1,2 +1,3 @@
-# fridujo-docs
-static documentation of Fridujo projects
+# Fridujo Documentation Repository
+
+This repository is used purely to host Github Pages.
