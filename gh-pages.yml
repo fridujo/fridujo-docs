@@ -5,10 +5,10 @@ site:
 content:
   sources:
   - url: git@github.com:fridujo/glacio.git
-    branches: feature/docs
+    branches: master
     start_path: docs
   - url: git@github.com:fridujo/rabbitmq-mock.git
-    branches: feature/docs
+    branches: master
     start_path: docs
 
 ui:
