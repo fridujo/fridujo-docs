@@ -1,0 +1,19 @@
+site:
+  title: Fridujo Documentation
+  url: https://example.org/docs 
+  start_page: glacio::index.adoc 
+content:
+  sources:
+  - url: git@github.com:fridujo/glacio.git
+    branches: feature/docs
+    start_path: docs
+  - url: git@github.com:fridujo/rabbitmq-mock.git
+    branches: feature/docs
+    start_path: docs
+
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: ./ui
+  output_dir: bin
