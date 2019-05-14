@@ -8,7 +8,7 @@ content:
     branches: master
     start_path: docs
   - url: git@github.com:fridujo/rabbitmq-mock.git
-    branches: master
+    branches: [1.0.11, master]
     start_path: docs
 
 ui:
