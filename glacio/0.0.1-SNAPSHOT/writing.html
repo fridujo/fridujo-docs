@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing features :: Fridujo Documentation</title>
+    <link rel="canonical" href="https://example.org/docs/glacio/0.0.1-SNAPSHOT/writing.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../bin/css/site.css">
+<link rel="icon" type="image/png" href="../../bin/img/favicon-32x32.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://example.org/docs">Fridujo Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="index.html">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item"
+			href="index.html"
+			>Glacio</a>
+            <a class="navbar-item"
+			href="../../rabbitmq-mock/1.0.12-SNAPSHOT/index.html"
+			>RabbitMQ-Mock</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/fridujo" target="_blank">Github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="glacio" data-version="0.0.1-SNAPSHOT">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Glacio</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Glacio</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="writing.html">Writing features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Misc</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="why.html#gradle">Why Glacio ?</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Glacio</span>
+    <span class="version">0.0.1-SNAPSHOT</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Glacio</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">0.0.1-SNAPSHOT</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">RabbitMQ-Mock</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../rabbitmq-mock/1.0.12-SNAPSHOT/index.html">1.0.12-SNAPSHOT</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="index.html">Glacio</a></li>
+    <li class="crumb"><a href="writing.html">Writing features</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/fridujo/glacio/edit/master/docs/modules/ROOT/pages/writing.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Writing features</h1>
+<div class="paragraph">
+<p>Glacio is compatible with the Gherkin syntax and adds the capability to nest steps.<br>
+All Gherkin language elements are available (DocString, Tables, Examples, etc.)</p>
+</div>
+<div class="paragraph">
+<p>You can nest as many steps as you need to best describe a feature.<br>
+Only the leaf steps will be linked to executable glue-code.</p>
+</div>
+<div class="paragraph">
+<p>For example, this feature</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-gherkin hljs" data-lang="gherkin">Feature: User login
+
+    Scenario: Successful login
+
+        Given a user with valid credentials
+            Insert generated user with valid credentials in database
+                Generate variable 'username' <i class="conum" data-value="1"></i><b>(1)</b>
+                Generate variable 'password'
+                Execute SQL <i class="conum" data-value="2"></i><b>(2)</b>
+                """
+                  INSERT INTO USERS(USERNAME, PASSWORD, ENABLED)
+                    VALUES('${username}', '${password}', 1)
+                """
+        And the user in on the login page
+            Open a 'Chrome' browser <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Will look for these methods</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Given("Generate variable '(.+)'") <i class="conum" data-value="1"></i><b>(1)</b>
+public void generate_variable(String variableName) {
+    // context.put(variableName, UUID.randomUUID().toString());
+}
+
+@Given("Execute SQL") <i class="conum" data-value="2"></i><b>(2)</b>
+public void execute_sql(String statement) {
+    // db.excute(statement);
+}
+
+@Given("Open a '(.+)' browser") <i class="conum" data-value="3"></i><b>(3)</b>
+public void open_a_browser(BrowserType browserType) {
+    // this.driver = browserType.newDriver();
+}</code></pre>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <p>All Fridujo products are licensed under the terms of the Apache 2.0 license.</p>
+</footer>
+<script src="../../bin/js/site.js"></script>
+<script src="../../bin/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

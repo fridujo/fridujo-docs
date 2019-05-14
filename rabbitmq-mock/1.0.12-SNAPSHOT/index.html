@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RabbitMQ-Mock Documentation :: Fridujo Documentation</title>
+    <link rel="canonical" href="https://example.org/docs/rabbitmq-mock/1.0.12-SNAPSHOT/index.html">
+    <meta name="keywords" content="rabbitmq, test, junit, spring, qpid, broker">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../bin/css/site.css">
+<link rel="icon" type="image/png" href="../../bin/img/favicon-32x32.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://example.org/docs">Fridujo Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="../../glacio/0.0.1-SNAPSHOT/index.html">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item"
+			href="../../glacio/0.0.1-SNAPSHOT/index.html"
+			>Glacio</a>
+            <a class="navbar-item"
+			href="index.html"
+			>RabbitMQ-Mock</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/fridujo" target="_blank">Github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="rabbitmq-mock" data-version="1.0.12-SNAPSHOT">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">RabbitMQ-Mock</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">RabbitMQ-Mock</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Getting started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#maven">Maven</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#gradle">Gradle</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#use">Your first test</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#spring">Integrating with Spring</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#plugins">Custom plugins</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">RabbitMQ-Mock</span>
+    <span class="version">1.0.12-SNAPSHOT</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Glacio</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../glacio/0.0.1-SNAPSHOT/index.html">0.0.1-SNAPSHOT</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">RabbitMQ-Mock</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">1.0.12-SNAPSHOT</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="../../glacio/0.0.1-SNAPSHOT/index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="index.html">RabbitMQ-Mock</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/fridujo/rabbitmq-mock/edit/master/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>RabbitMQ-Mock Documentation</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This site hosts the technical documentation for RabbitMQ-Mock.</p>
+</div>
+<div class="paragraph">
+<p>This project aims to emulate RabbitMQ behavior for test purposes.<br>
+<strong>RabbitMQ-Mock</strong> makes it easy to test against a RabbitMQ broker without having to start one, or using Qpid as a replacement.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started"><a class="anchor" href="#_getting_started"></a>Getting started</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="maven"><a class="anchor" href="#maven"></a>Maven</h3>
+<div class="paragraph">
+<p>Add the following dependency to the <strong>pom.xml</strong> file</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.fridujo&lt;/groupId&gt;
+    &lt;artifactId&gt;rabbitmq-mock&lt;/artifactId&gt;
+    &lt;version&gt;{page-component-version}&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gradle"><a class="anchor" href="#gradle"></a>Gradle</h3>
+<div class="paragraph">
+<p>Add the following dependency to the <strong>build.gradle</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">repositories {
+	mavenCentral()
+}
+
+// ...
+
+dependencies {
+	// ...
+	testImplementation('com.github.fridujo:rabbitmq-mock:{page-component-version}')
+	// ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="use"><a class="anchor" href="#use"></a>When using ConnectionFactory directly</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Replace the use of <code>com.rabbitmq.client.ConnectionFactory</code> by <a href="https://github.com/fridujo/rabbitmq-mock/blob/1.0.12-SNAPSHOT/src/main/java/com/github/fridujo/rabbitmq/mock/MockConnectionFactory.java"><code>MockConnectionFactory</code></a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">ConnectionFactory factory = new MockConnectionFactory(); <i class="conum" data-value="1"></i><b>(1)</b>
+try (Connection conn = factory.newConnection()) {
+    try (Channel channel = conn.createChannel()) {
+        GetResponse response = channel.basicGet(queueName, autoAck);
+        byte[] body = response.getBody();
+        long deliveryTag = response.getEnvelope().getDeliveryTag();
+
+        // Do what you need with the body
+
+        channel.basicAck(deliveryTag, false);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The only thing that changes: substitute the <code>ConnectionFactory</code> with the mock one.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="spring"><a class="anchor" href="#spring"></a>When using Spring</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Change underlying RabbitMQ <code>ConnectionFactory</code> by <a href="https://github.com/fridujo/rabbitmq-mock/blob/1.0.12-SNAPSHOT/src/main/java/com/github/fridujo/rabbitmq/mock/MockConnectionFactory.java"><code>MockConnectionFactory</code></a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Configuration
+@Import(AppConfiguration.class) <i class="conum" data-value="2"></i><b>(2)</b>
+class TestConfiguration { <i class="conum" data-value="1"></i><b>(1)</b>
+    @Bean ConnectionFactory connectionFactory() { <i class="conum" data-value="3"></i><b>(3)</b>
+        return new CachingConnectionFactory(new MockConnectionFactory());
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Define or reuse a <strong>Spring</strong> configuration dedicated for integration tests</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Import the configuration (maybe partial) containing RabbitMq configuration</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Override the <code>connectionFactory</code> bean with the <strong>Spring</strong> wrapper delegating to <code>MockConnectionFactory</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="plugins"><a class="anchor" href="#plugins"></a>Plugins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some plugins, like the <a href="https://github.com/rabbitmq/rabbitmq-sharding"><strong>rabbitmq-sharding</strong></a> one, adds more exchange types (ex: <code>"x-modulus-hash"</code>).<br>
+<strong>RabbitMQ-Mock</strong> supports default <strong>exchange</strong> types: direct, fanout, topic and headers.</p>
+</div>
+<div class="paragraph">
+<p>You can enable the built-in plugin <a href="https://github.com/rabbitmq/rabbitmq-consistent-hash-exchange"><strong>consistent-hash-exchange</strong></a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">var connectionFactory = new MockConnectionFactory().enableConsistentHashPlugin();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To add a new type of exchange, use the <code>withAdditionalExchange</code> method on a <code>MockConnectionFactory</code>.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">var connectionFactory = new MockConnectionFactory().withAdditionalExchange(new FixDelayExchangeCreator());</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <p>All Fridujo products are licensed under the terms of the Apache 2.0 license.</p>
+</footer>
+<script src="../../bin/js/site.js"></script>
+<script src="../../bin/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

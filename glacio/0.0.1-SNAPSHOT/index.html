@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glacio Documentation :: Fridujo Documentation</title>
+    <link rel="canonical" href="https://example.org/docs/glacio/0.0.1-SNAPSHOT/index.html">
+    <meta name="keywords" content="test, feature, BDD, gherkin, cucumber, junit, spring">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../bin/css/site.css">
+<link rel="icon" type="image/png" href="../../bin/img/favicon-32x32.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://example.org/docs">Fridujo Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="index.html">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item"
+			href="index.html"
+			>Glacio</a>
+            <a class="navbar-item"
+			href="../../rabbitmq-mock/1.0.12-SNAPSHOT/index.html"
+			>RabbitMQ-Mock</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/fridujo" target="_blank">Github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="glacio" data-version="0.0.1-SNAPSHOT">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Glacio</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Glacio</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="writing.html">Writing features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Misc</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="why.html#gradle">Why Glacio ?</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Glacio</span>
+    <span class="version">0.0.1-SNAPSHOT</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Glacio</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">0.0.1-SNAPSHOT</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">RabbitMQ-Mock</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../rabbitmq-mock/1.0.12-SNAPSHOT/index.html">1.0.12-SNAPSHOT</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="index.html" class="home-link is-current"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="index.html">Glacio</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/fridujo/glacio/edit/master/docs/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Glacio Documentation</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This site hosts the technical documentation for Glacio.</p>
+</div>
+<div class="paragraph">
+<p>Heavily inspired by Gherkin, Glacio is a language that aim to support specification-by-example in an Agile environment.</p>
+</div>
+<div class="paragraph">
+<p>Key features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>nested steps</p>
+</li>
+<li>
+<p>integrated with JUnit 5 and Spring</p>
+</li>
+<li>
+<p>composable runner extensions</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_you_can_do"><a class="anchor" href="#_what_you_can_do"></a>What you can do</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-gherkin hljs" data-lang="gherkin">Feature: User login
+
+    Scenario: Successful login
+
+        Given a user with valid credentials
+            Insert generated user with valid credentials in database
+                Generate variable 'username'
+                Generate variable 'password'
+                Execute SQL
+                """
+                  INSERT INTO USERS(USERNAME, PASSWORD, ENABLED)
+                    VALUES('${username}', '${password}', 1)
+                """
+        And the user in on the login page
+            Open a 'Chrome' browser
+            Navigate to 'https://www.yourapp.com'
+            Click on the 'Sign In' button
+        When the user signs in
+            Fill 'username' input with '${username}'
+            Fill 'password' input with '${password}'
+            Click on the 'Sign In' button
+        Then the user is logged in
+            Relative URL is '/home'</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <p>All Fridujo products are licensed under the terms of the Apache 2.0 license.</p>
+</footer>
+<script src="../../bin/js/site.js"></script>
+<script src="../../bin/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting started :: Fridujo Documentation</title>
+    <link rel="canonical" href="https://example.org/docs/glacio/0.0.1-SNAPSHOT/getting_started.html">
+    <meta name="generator" content="Antora 2.0.0">
+    <link rel="stylesheet" href="../../bin/css/site.css">
+<link rel="icon" type="image/png" href="../../bin/img/favicon-32x32.png">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://example.org/docs">Fridujo Documentation</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="index.html">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item"
+			href="index.html"
+			>Glacio</a>
+            <a class="navbar-item"
+			href="../../rabbitmq-mock/1.0.12-SNAPSHOT/index.html"
+			>RabbitMQ-Mock</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://github.com/fridujo" target="_blank">Github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+<div class="navigation-container" data-component="glacio" data-version="0.0.1-SNAPSHOT">
+  <aside class="navigation">
+    <div class="panels">
+<div class="navigation-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Glacio</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Glacio</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="getting_started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="writing.html">Writing features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-toggle"></button>
+    <span class="nav-text">Misc</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="why.html#gradle">Why Glacio ?</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="navigation-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Glacio</span>
+    <span class="version">0.0.1-SNAPSHOT</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Glacio</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">0.0.1-SNAPSHOT</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <span class="title">RabbitMQ-Mock</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../rabbitmq-mock/1.0.12-SNAPSHOT/index.html">1.0.12-SNAPSHOT</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+  <main class="main">
+<div class="toolbar" role="navigation">
+  <button class="navigation-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="crumbs" aria-label="breadcrumbs">
+  <ul>
+    <li class="crumb"><a href="index.html">Glacio</a></li>
+    <li class="crumb"><a href="getting_started.html">Getting started</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/fridujo/glacio/edit/master/docs/modules/ROOT/pages/getting_started.adoc">Edit this Page</a></div>
+</div>
+<article class="doc">
+<h1>Getting started</h1>
+<div class="sect1">
+<h2 id="_glacio_configuration"><a class="anchor" href="#_glacio_configuration"></a>Glacio configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Configurations are the entry point of any Glacio runner.<br>
+They gather:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>feature files locations</p>
+</li>
+<li>
+<p>glue code location</p>
+</li>
+<li>
+<p>extensions and their configurations</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This way, you can have multiple configurations with heterogeneous setups living in the same project.</p>
+</div>
+<div class="paragraph">
+<p>A simple configuration can be</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GlacioConfiguration(
+    featurePaths = "classpath:features",
+    gluePaths = "com.glacio.sample"
+)
+public class BusinessTests {
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And a complex one can be</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GlacioConfiguration(
+    featurePaths = {"classpath:featuresA", "file:featureB"},
+    gluePaths = {"com.github.fridujo.glacio.extension.spring", "com.glacio.sample"}
+)
+@ExtendGlacioWith(SpringExtension.class)
+@ContextConfiguration(classes = TestApp.class)
+@TestPropertySource(properties = "my.prop=45.3D")
+class BusinessTests {
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_junit5"><a class="anchor" href="#_using_junit5"></a>Using JUnit5</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Add the following dependency to the <strong>pom.xml</strong> file</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.fridujo&lt;/groupId&gt;
+    &lt;artifactId&gt;glacio-junit-engine&lt;/artifactId&gt;
+    &lt;version&gt;{page-component-version}&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The engine will be picked-up by the <strong>platform launcher</strong> used either by Maven, Gradle or IntelliJ IDEA.<br>
+The filters only apply on configuration classes, not on feature files.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_spring"><a class="anchor" href="#_using_spring"></a>Using Spring</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can wire <strong>Spring</strong> beans in glue-code classes, the same way it is done in JUnit5.<br>
+This means that parameters that are to be injected from the <strong>Spring</strong> context must be marked with <code>@Autowired</code>.<br>
+This is because, extesions are composable, and the only way the <code>SpringExtension</code> can know that some parameter must be injected or not, is to mark it.</p>
+</div>
+<div class="paragraph">
+<p>Add the following dependency to the <strong>pom.xml</strong> file</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.fridujo&lt;/groupId&gt;
+    &lt;artifactId&gt;glacio-spring&lt;/artifactId&gt;
+    &lt;version&gt;{page-component-version}&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The extension is not enabled by default, and must be explicitly done when needed.<br>
+And add the following annotations on a Glacio configuration</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GlacioConfiguration(...)
+@ExtendGlacioWith(SpringExtension.class) <i class="conum" data-value="1"></i><b>(1)</b>
+@ContextConfiguration(classes = TestApp.class) <i class="conum" data-value="2"></i><b>(2)</b>
+@TestPropertySource(properties = "my.prop=45.3D") <i class="conum" data-value="3"></i><b>(3)</b>
+class BusinessTests {
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>enable the <code>SpringExtension</code> for the <strong>BusinessTests</strong> configuration</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>supply a root <strong>Spring</strong> configuration to load</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>use as many <strong>Spring</strong> or <strong>Spring-Boot</strong> test annotations</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </main>
+</div>
+<footer class="footer">
+  <p>All Fridujo products are licensed under the terms of the Apache 2.0 license.</p>
+</footer>
+<script src="../../bin/js/site.js"></script>
+<script src="../../bin/js/vendor/highlight.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>
